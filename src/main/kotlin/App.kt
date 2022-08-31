@@ -20,23 +20,23 @@ class App {
             inputPlayerTwo = Utils.getString("2. Masukkan pemain 2: ")
         }
 
-        when(inputPlayerOne) {
+        when(inputPlayerOne.lowercase()) {
             "gunting" -> {
-                when(inputPlayerTwo) {
+                when(inputPlayerTwo.lowercase()) {
                     "gunting" -> Utils.printResult("DRAW!")
                     "batu" -> Utils.printResult("Pemain 2 MENANG!")
                     "kertas" -> Utils.printResult("Pemain 1 MENANG!")
                 }
             }
             "kertas" -> {
-                when(inputPlayerTwo) {
+                when(inputPlayerTwo.lowercase()) {
                     "gunting" -> Utils.printResult("Pemain 2 MENANG!")
                     "batu" -> Utils.printResult("Pemain 1 MENANG!")
                     "kertas" -> Utils.printResult("DRAW!")
                 }
             }
             "batu" -> {
-                when(inputPlayerTwo) {
+                when(inputPlayerTwo.lowercase()) {
                     "gunting" -> Utils.printResult("Pemain 1 MENANG!")
                     "batu" -> Utils.printResult("DRAW!")
                     "kertas" -> Utils.printResult("Pemain 2 MENANG!")
