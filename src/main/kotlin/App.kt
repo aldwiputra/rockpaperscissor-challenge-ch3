@@ -1,3 +1,4 @@
+import User.Player
 import utils.Utils
 
 class App {
@@ -8,35 +9,29 @@ class App {
     }
 
     private fun play() {
-        var inputPlayerOne: String = Utils.getString("1. Masukkan pemain 1: ")
-        while (!Utils.isValidInput(inputPlayerOne)) {
-            println("Input tidak valid!")
-            inputPlayerOne = Utils.getString("1. Masukkan pemain 1: ")
-        }
+        val PlayerOne = Player()
+        val PlayerTwo = Player()
 
-        var inputPlayerTwo: String = Utils.getString("2. Masukkan pemain 2: ")
-        while (!Utils.isValidInput(inputPlayerTwo)) {
-            println("Input tidak valid!")
-            inputPlayerTwo = Utils.getString("2. Masukkan pemain 2: ")
-        }
+        PlayerOne.getInputFromPlayer("1")
+        PlayerTwo.getInputFromPlayer("2")
 
-        when(inputPlayerOne.lowercase()) {
+        when(PlayerOne.getInputValue().lowercase()) {
             "gunting" -> {
-                when(inputPlayerTwo.lowercase()) {
+                when(PlayerTwo.getInputValue().lowercase()) {
                     "gunting" -> Utils.printResult("DRAW!")
                     "batu" -> Utils.printResult("Pemain 2 MENANG!")
                     "kertas" -> Utils.printResult("Pemain 1 MENANG!")
                 }
             }
             "kertas" -> {
-                when(inputPlayerTwo.lowercase()) {
+                when(PlayerTwo.getInputValue().lowercase()) {
                     "gunting" -> Utils.printResult("Pemain 2 MENANG!")
                     "batu" -> Utils.printResult("Pemain 1 MENANG!")
                     "kertas" -> Utils.printResult("DRAW!")
                 }
             }
             "batu" -> {
-                when(inputPlayerTwo.lowercase()) {
+                when(PlayerTwo.getInputValue().lowercase()) {
                     "gunting" -> Utils.printResult("Pemain 1 MENANG!")
                     "batu" -> Utils.printResult("DRAW!")
                     "kertas" -> Utils.printResult("Pemain 2 MENANG!")
